@@ -1,6 +1,8 @@
-import RobinCall from "./assets/sounds/robin-sound.mp3"
+import { Birds } from "./data";
+// import RobinCall from "./assets/sounds/robin-sound.mp3"
 import {Howl} from 'howler'
 // import { Component } from 'react';
+import ControllableStates from "./components/autocomplete";
 
 // const audioClips = [
 //   {sound: RobinCall, 
@@ -8,16 +10,28 @@ import {Howl} from 'howler'
 //   }
 // ]
 
+
+
 function App() {
 
-    const sound = new Howl({
-            src: RobinCall,
+// const { id, name, img, sound } = Birds;
+
+let randomBird = Birds[Math.floor(Math.random() * Birds.length)];
+
+let randomCall = randomBird.sound
+
+
+
+    const call = new Howl({
+            src: randomCall,
             html5: true,
+            volume: 0.1,
           });
-  
+         
   return (
     <div>
-     <div onClick={() => sound.play()}>Click To Play Sound</div>
+     <button onClick={() => call.play()}>Guess The Bird
+     </button> 
     </div>
   );
 }

@@ -7,10 +7,10 @@ import { useState } from 'react';
 
 function PlayGame() {
 
-    let Birds = [id ,name, sound]
+    const [id, name, sound, img] = Birds
 
     let randomBird = Birds[Math.floor(Math.random() * Birds.length)];
-    const [value, setValue] = useState(Birds[0]);
+    const [value, setValue] = useState(name[0]);
     const [inputValue, setInputValue] = useState('');
 
 
@@ -35,7 +35,7 @@ function PlayGame() {
       setInputValue(newInputValue);
     }}
     id="Guess"
-    options={Birds}
+    options={name}
     sx={{ width: 300 }}
     renderInput={(params) => <TextField {...params} label="Guess" />}
   />

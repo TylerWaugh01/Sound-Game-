@@ -6,13 +6,13 @@ import doveCall from "./assets/sounds/mourning-dove-sound.mp3"
 export const Birds = [
     {
       id: 1,
-      name: "Robin",
+      label: "Robin",
       img: robin,
       sound: robinCall,
     },
     {
         id: 2,
-        name: "Dove",
+        label: "Dove",
         img: dove,
         sound: doveCall,
       },

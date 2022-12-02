@@ -5,16 +5,31 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState } from 'react';
 import Box from '@mui/material/Box'
+import styled from "styled-components";
 
-// const [value, setValue] = useState(name[0]);
+const Container = styled.div`
+    /* padding: 20px; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 
 function PlayGame() {
 
+    // const [sucessGuess, setGuess] = useState("flex")
     const [sucessGuess, setGuess] = useState("none")
-    const [val, setVal] = useState("Who Is That Bird?")
+    const [val, setVal] = useState("")
 
     const click = () => {
-        if (val === randomBird.name) {
+        if (inputValue === randomBird.label) {
             setGuess("flex")
         } else {
             alert("Try Again")
@@ -30,6 +45,7 @@ function PlayGame() {
         // const newvalue = event.target.value
         // setVal(newvalue)
         setVal(event.target.value)
+        click();
     }
 
 
@@ -40,42 +56,56 @@ function PlayGame() {
         html5: true,
         volume: 0.1,
     });
-
-
-
+   
+    const [value, setValue] = useState("Who Is The Bird");
+    const [inputValue, setInputValue] = useState('');
+    
     return (
-        <div>
-             {/* <Autocomplete
-      disablePortal
-      id="Bird-Box"
-      options={Birds}
-      sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} name="bird" />}
-    /> */}
-            
-            
-            
+        <Container>
             <button onClick={() => call.play()}>
-                Guess The Bird
-            </button>
-            <input onChange={change}
-                value={val} />
-            <button onClick={click}>Click Me</button>
+                 Who Made The Call?
+           </button>
+      
+          <br />
+          <Autocomplete
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+              setInputValue(newInputValue);
+            }}
+            id="bird"
+            options={Birds}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Bird" />}
+          />
 
-            <Box sx={{ 
-                display: sucessGuess,
-                height: "40vh",
-                 
-                
-                
-                }} >
-                <img src={randomBird.img} />
-            </Box>
+<button onClick={click}>Submit Guess</button>
 
 
-        </div>
-    )
-}
+
+
+<Box sx={{ 
+    display: sucessGuess,
+    height: "50vh",
+     
+    
+    
+    }} >
+         <Image src={randomBird.img} />
+</Box>
+</Container>
+
+
+
+        
+      );
+        }
+
+        export default PlayGame;
+
 
 // Need a type for the input? Perhaps a form input. Nested paper, boxes... form, form label 
 
@@ -88,8 +118,17 @@ function PlayGame() {
 
 
 
-export default PlayGame;
 
+
+/* <Box sx={{ 
+    display: sucessGuess,
+    height: "40vh",
+     
+    
+    
+    }} >
+    <img src={randomBird.img} />
+</Box> */
 
 
 

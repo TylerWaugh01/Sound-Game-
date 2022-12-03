@@ -26,11 +26,13 @@ function PlayGame() {
 
     // const [sucessGuess, setGuess] = useState("flex")
     const [sucessGuess, setGuess] = useState("none")
+    const [initialState, setState] = useState("flex")
     const [val, setVal] = useState("")
 
     const click = () => {
         if (inputValue === randomBird.label) {
             setGuess("flex")
+            setState("none")
         } else {
             alert("Try Again")
         }
@@ -95,6 +97,15 @@ function PlayGame() {
     
     }} >
          <Image src={randomBird.img} />
+</Box>
+<Box sx={{ 
+    display: initialState,
+    height: "50vh",
+     
+    
+    
+    }} >
+         <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" />
 </Box>
 </Container>
 

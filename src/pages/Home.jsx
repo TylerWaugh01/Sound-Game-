@@ -1,5 +1,5 @@
 import PlayGame from "../components/PlayGame"
-import Select from "../components/Select"
+// import Select from "../components/Select"
 
 const Home = () => {
   return (

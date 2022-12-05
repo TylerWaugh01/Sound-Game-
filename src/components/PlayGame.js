@@ -8,7 +8,7 @@ import Box from '@mui/material/Box'
 import styled from "styled-components";
 
 const Container = styled.div`
-    /* padding: 20px; */
+    padding: 20px;
     display: flex;
     /* flex-wrap: wrap; */
     align-items: center; 
@@ -21,6 +21,21 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
 `;
+
+
+
+const Button = styled.button`
+  border: solid;
+  background-color: orange;
+  &:hover,
+  &:focus {
+    background-color: palevioletred;
+  }
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+`;
+
 
 function PlayGame() {
 
@@ -64,32 +79,13 @@ function PlayGame() {
     
     return (
         <Container>
-            <button onClick={() => call.play()}>
-                 Who Made The Call?
-           </button>
-      
-          <br />
-          <Autocomplete
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            inputValue={inputValue}
-            onInputChange={(event, newInputValue) => {
-              setInputValue(newInputValue);
-            }}
-            id="bird"
-            options={Birds}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label="Bird" />}
-          />
+           
+           <Button onClick={() => call.play()}>
+            
+                 Play Call
 
-<button onClick={click}>Submit Guess</button>
-
-
-
-
-<Box sx={{ 
+           </Button>
+           <Box sx={{ 
     display: sucessGuess,
     height: "50vh",
      
@@ -107,6 +103,29 @@ function PlayGame() {
     }} >
          <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" />
 </Box>
+      
+          <br />
+          <Autocomplete
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+              setInputValue(newInputValue);
+            }}
+            id="bird"
+            options={Birds}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label=""  />}
+          />
+
+<button onClick={click}>Submit Guess</button>
+
+
+
+
+
 </Container>
 
 

@@ -16,6 +16,11 @@ const Container = styled.div`
     flex-direction: column;
 `;
 
+const Logo = styled.span`
+font-size: 75px;
+padding: 20px;
+`;
+
 const Image = styled.img`
   width: 100%;
   height: 100%;
@@ -79,6 +84,7 @@ function PlayGame() {
     
     return (
         <Container>
+            <Logo>Birdle</Logo>
            
            <Button onClick={() => call.play()}>
             
@@ -86,17 +92,21 @@ function PlayGame() {
 
            </Button>
            <Box sx={{ 
+    marginTop: "150px",
     display: sucessGuess,
     height: "50vh",
      
     
     
     }} >
-         <Image src={randomBird.img} />
+         <Image src={randomBird.img} 
+         sx={{ 
+    margin: "150px", }} />
 </Box>
 <Box sx={{ 
     display: initialState,
     height: "50vh",
+    marginTop: "25px",
      
     
     

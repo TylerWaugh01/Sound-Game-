@@ -1,6 +1,5 @@
 import { Birds } from "../data"
 import { Howl } from 'howler'
-// import Select from "./Select";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState } from 'react';
@@ -9,8 +8,9 @@ import styled from "styled-components";
 import bird from '../assets/images/Bird.jpg'
 
 
-// background-image: url(${bird});
-// background-size: cover;
+
+
+
 
 
 const Container = styled.div`
@@ -19,11 +19,15 @@ const Container = styled.div`
     align-items: center; 
     justify-content: center;
     flex-direction: column;
-`;
+    background-image: url(${bird});
+    background-size: cover;`
+
 
 const Logo = styled.span`
 font-size: 75px;
 padding: 20px;
+color: white;
+font-weight: bolder;
 `;
 
 const Image = styled.img`
@@ -59,7 +63,6 @@ const SubmitButton = styled.button`
 
 function PlayGame() {
 
-    // const [sucessGuess, setGuess] = useState("flex")
     const [sucessGuess, setGuess] = useState("none")
     const [initialState, setState] = useState("flex")
     const [val, setVal] = useState("")
@@ -73,19 +76,6 @@ function PlayGame() {
         }
     }
 
-
-    // const click = () => {
-    //     return (val === randomBird.name ? 'correct' : 'not correct');
-    // }
-
-    const change = event => {
-        // const newvalue = event.target.value
-        // setVal(newvalue)
-        setVal(event.target.value)
-        click();
-    }
-
-
     let randomBird = Birds[Math.floor(Math.random() * Birds.length)];
 
     const call = new Howl({
@@ -98,16 +88,34 @@ function PlayGame() {
     const [inputValue, setInputValue] = useState('');
     
     return (
-        <Container>
-            <Logo>Birdle</Logo>
-           
-           <Button onClick={() => call.play()}>
-            
+       
+        <Container>          
+            <Logo>Birdle</Logo>          
+           <Button onClick={() => call.play()}>       
                  Play Call
-
            </Button>
+
+           <Autocomplete
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+              setInputValue(newInputValue);
+            }}
+            id="bird"
+            options={Birds}
+            sx={{ width: 300, marginTop: 5 }}x
+            renderInput={(params) => <TextField {...params} label=""  />}
+          />
+
+<SubmitButton onClick={click}>Submit Guess</SubmitButton>
+
+
+
            <Box sx={{ 
-    marginTop: "150px",
+    
     display: sucessGuess,
     height: "50vh", 
     }} >
@@ -115,12 +123,14 @@ function PlayGame() {
          sx={{ 
     margin: "150px", }} />
 </Box>
-{/* <Box sx={{ 
+<Box sx={{ 
     display: initialState,
     height: "50vh",
+    margin: 0,
+    padding: 0,
     }} >
-         <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" />
-</Box> */}
+         {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" /> */}
+</Box>
       
           <Autocomplete
             value={value}
@@ -133,7 +143,6 @@ function PlayGame() {
             }}
             id="bird"
             options={Birds}
-            freeSolo
             sx={{ width: 300, marginTop: 5 }}x
             renderInput={(params) => <TextField {...params} label=""  />}
           />

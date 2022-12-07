@@ -6,11 +6,16 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useState } from 'react';
 import Box from '@mui/material/Box'
 import styled from "styled-components";
+import bird from '../assets/images/Bird.jpg'
+
+
+// background-image: url(${bird});
+// background-size: cover;
+
 
 const Container = styled.div`
     padding: 20px;
     display: flex;
-    /* flex-wrap: wrap; */
     align-items: center; 
     justify-content: center;
     flex-direction: column;
@@ -38,6 +43,16 @@ const Button = styled.button`
   }
   font-size: 30px;
   color: white;
+  cursor: pointer;
+`;
+
+const SubmitButton = styled.button`
+  margin-top: 10px;
+  border: solid;
+  background-color: blue;
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
   cursor: pointer;
 `;
 
@@ -79,7 +94,7 @@ function PlayGame() {
         volume: 0.1,
     });
    
-    const [value, setValue] = useState("Who Is The Bird");
+    const [value, setValue] = useState("");
     const [inputValue, setInputValue] = useState('');
     
     return (
@@ -94,27 +109,19 @@ function PlayGame() {
            <Box sx={{ 
     marginTop: "150px",
     display: sucessGuess,
-    height: "50vh",
-     
-    
-    
+    height: "50vh", 
     }} >
          <Image src={randomBird.img} 
          sx={{ 
     margin: "150px", }} />
 </Box>
-<Box sx={{ 
+{/* <Box sx={{ 
     display: initialState,
     height: "50vh",
-    marginTop: "25px",
-     
-    
-    
     }} >
          <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" />
-</Box>
+</Box> */}
       
-          <br />
           <Autocomplete
             value={value}
             onChange={(event, newValue) => {
@@ -126,11 +133,12 @@ function PlayGame() {
             }}
             id="bird"
             options={Birds}
-            sx={{ width: 300 }}
+            freeSolo
+            sx={{ width: 300, marginTop: 5 }}x
             renderInput={(params) => <TextField {...params} label=""  />}
           />
 
-<button onClick={click}>Submit Guess</button>
+<SubmitButton onClick={click}>Submit Guess</SubmitButton>
 
 
 

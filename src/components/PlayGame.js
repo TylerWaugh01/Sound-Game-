@@ -31,8 +31,8 @@ font-weight: bolder;
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   object-fit: cover;
 `;
 
@@ -129,7 +129,7 @@ function PlayGame() {
     margin: 0,
     padding: 0,
     }} >
-         {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" /> */}
+         <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" />
 </Box>
       
           <Autocomplete

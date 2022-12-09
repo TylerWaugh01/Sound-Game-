@@ -45,8 +45,8 @@ const Button = styled.button`
   &:focus {
     background-color: palevioletred;
   }
-  font-size: 30px;
-  color: white;
+  font-size: 50px;
+  color: blue;
   cursor: pointer;
 `;
 

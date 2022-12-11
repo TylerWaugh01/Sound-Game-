@@ -6,6 +6,7 @@ import doveCall from "./assets/sounds/mourning-dove-sound.mp3"
 export const Birds = [
     {
       id: 1,
+      state: "Kansas",
       label: "Robin",
       img: robin,
       sound: robinCall,
@@ -13,6 +14,7 @@ export const Birds = [
     {
         id: 2,
         label: "Dove",
+        state: "Kansas",
         img: dove,
         sound: doveCall,
       },

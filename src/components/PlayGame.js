@@ -7,12 +7,6 @@ import Box from '@mui/material/Box'
 import styled from "styled-components";
 import bird from '../assets/images/Bird.jpg'
 
-
-
-
-
-
-
 const Container = styled.div`
     padding: 20px;
     display: flex;
@@ -39,14 +33,14 @@ const Image = styled.img`
 
 
 const Button = styled.button`
-  border: solid;
+  border: solid white;
   background-color: orange;
   &:hover,
   &:focus {
     background-color: palevioletred;
   }
   font-size: 50px;
-  color: blue;
+  color: white;
   cursor: pointer;
 `;
 
@@ -68,24 +62,29 @@ function PlayGame() {
     const [val, setVal] = useState("")
 
     const click = () => {
-        if (inputValue === randomBird.label) {
-            setGuess("flex")
-            setState("none")
-        } else {
-            alert("Try Again")
-        }
+      // console.log(inputValue);
+      // console.log(value);
+      console.log(randomBird.label);
+        // if (inputValue === randomBird.label) {
+        //     setGuess("flex")
+        //     setState("none")
+        // } else {
+        //     alert("Try Again")
+        // }
     }
 
     let randomBird = Birds[Math.floor(Math.random() * Birds.length)];
 
+     
+    
     const call = new Howl({
-        src: randomBird.sound,
+        src: [randomBird.sound],
         html5: true,
         volume: 0.1,
     });
    
-    const [value, setValue] = useState("");
-    const [inputValue, setInputValue] = useState('');
+    const [value, setValue] = useState("Bird");
+    const [inputValue, setInputValue] = useState('Bird');
     
     return (
        
@@ -98,7 +97,7 @@ function PlayGame() {
            <Autocomplete
             value={value}
             onChange={(event, newValue) => {
-              setValue(newValue);
+            setValue(newValue);
             }}
             inputValue={inputValue}
             onInputChange={(event, newInputValue) => {
@@ -107,7 +106,7 @@ function PlayGame() {
             id="bird"
             options={Birds}
             sx={{ width: 300, marginTop: 5 }}x
-            renderInput={(params) => <TextField {...params} label=""  />}
+            renderInput={(params) => <TextField {...params} label="Guess"  />}
           />
 
 <SubmitButton onClick={click}>Submit Guess</SubmitButton>
@@ -129,7 +128,7 @@ function PlayGame() {
     margin: 0,
     padding: 0,
     }} >
-         <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" />
+         {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" /> */}
 </Box>
       
           <Autocomplete

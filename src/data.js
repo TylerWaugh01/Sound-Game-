@@ -4,26 +4,25 @@ import dove from "./assets/images/mourning-dove.jpg"
 import doveCall from "./assets/sounds/mourning-dove-sound.mp3"
 
 export const Birds = [
+  // {
+  //   id: 3,
+  //   state: "Kansas",
+  //   label: "Bird",
+  // },  
   {
-    id: 3,
+    id: 1,
     state: "Kansas",
-    label: "Bird",
-  },  
-  
-  {
-      id: 1,
+    label: "Robin",
+    img: robin,
+    sound: robinCall,
+   },
+   {
+      id: 2,
+      label: "Dove",
       state: "Kansas",
-      label: "Robin",
-      img: robin,
-      sound: robinCall,
+      img: dove,
+      sound: doveCall,
     },
-    {
-        id: 2,
-        label: "Dove",
-        state: "Kansas",
-        img: dove,
-        sound: doveCall,
-      },
   ];
 
 

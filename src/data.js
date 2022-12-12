@@ -3,12 +3,7 @@ import robinCall from "./assets/sounds/robin-sound.mp3"
 import dove from "./assets/images/mourning-dove.jpg"
 import doveCall from "./assets/sounds/mourning-dove-sound.mp3"
 
-export const Birds = [
-  // {
-  //   id: 3,
-  //   state: "Kansas",
-  //   label: "Bird",
-  // },  
+export const Birds = [ 
   {
     id: 1,
     state: "Kansas",

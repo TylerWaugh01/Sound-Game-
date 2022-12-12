@@ -5,8 +5,8 @@ import PlayerWin from './PlayerWin'
 import PlayerLose from './PlayerLose'
 
 // import TextField from '@mui/material/TextField';
-// import Autocomplete from '@mui/material/Autocomplete';
 // import Box from '@mui/material/Box'
+// import { Autocomplete } from "@mui/material";
 import styled from "styled-components";
 import bird from '../assets/images/Bird.jpg' //for background
 
@@ -38,15 +38,17 @@ const Image = styled.img`
 
 
 const Button = styled.button`
+  margin-bottom: 10px;
   border: solid white;
   background-color: orange;
   &:hover,
   &:focus {
     background-color: palevioletred;
   }
-  font-size: 50px;
+  font-size: 30px;
   color: white;
   cursor: pointer;
+  font-weight: bolder;
 `;
 
 const SubmitButton = styled.button`
@@ -60,13 +62,6 @@ const SubmitButton = styled.button`
 `;
 
 function PlayGame() {
-
-  // const [sucessGuess, setGuess] = useState("none")
-  // const [initialState, setState] = useState("flex")
-  // const [val, setVal] = useState("")
-  // const [value, setValue] = useState("Bird");
-
-
  
   /*
     State management for:
@@ -133,23 +128,6 @@ function PlayGame() {
     }
   }
 
-
-
-
-  // const click = () => {
-  //   console.log(randomBird.label);
-
-    // console.log(inputValue);
-    // console.log(value);
-    // if (inputValue === randomBird.label) {
-    //     setGuess("flex")
-    //     setState("none")
-    // } else {
-    //     alert("Try Again")
-    // }
-  // }
-
-
 return (
 
   <Container>          
@@ -160,54 +138,32 @@ return (
       : <Button onClick={playBirdCall}>Play Call</Button>
     }
     
-      
+
     <input 
       type="text"
       placeholder="Bird"
+      list="birds" 
+      autoComplete="on"
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
     />
 
-    <button onClick={handleGuessSubmit}>Submit Guess</button>
+<datalist id="birds" >
+            <option value='Dove' />
+</datalist>
+
+
+
+
+
+
+
+
+    <SubmitButton onClick={handleGuessSubmit}>Submit Guess</SubmitButton>
 
     {gameWin && <PlayerWin birdImage={randomBird.img} name={randomBird.label}/>}
     {isWrongGuess && <PlayerLose />}
-{/* 
-    <Autocomplete
-      value={value}
-      onChange={(event, newValue) => {
-      setValue(newValue);
-      }}
-      inputValue={inputValue}
-      onInputChange={(event, newInputValue) => {
-      setInputValue(newInputValue);
-      }}
-      id="bird"
-      options={Birds}
-      sx={{ width: 300, marginTop: 5 }}x
-      renderInput={(params) => <TextField {...params} label="Guess"  />}
-    /> */}
 
-    {/* <SubmitButton onClick={click}>Submit Guess</SubmitButton> */}
-
-
-{/* 
-    <Box sx={{ 
-      display: sucessGuess,
-      height: "50vh", 
-    }} >
-    <Image src={randomBird.img} 
-      sx={{ 
-      margin: "150px", }} />
-    </Box>
-    <Box sx={{ 
-      display: initialState,
-      height: "50vh",
-      margin: 0,
-      padding: 0,
-    }} > */}
-    {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" /> */}
-    {/* </Box> */}
 {/* 
     <Autocomplete
       value={value}
@@ -233,20 +189,10 @@ return (
 export default PlayGame;
 
 
-// TODO 
-// Need a type for the input? Perhaps a form input. Nested paper, boxes... form, form label 
-// duration of bird call (look at howler docs)
-// Toggle image based on guess 
-// How to display bird on proper guess 
 
 
 
-/* <Box sx={{ 
-    display: sucessGuess,
-    height: "40vh",
-    }} >
-    <img src={randomBird.img} />
-</Box> */
+
 
 
 

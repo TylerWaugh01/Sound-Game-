@@ -148,20 +148,15 @@ return (
       onChange={(e) => setInputValue(e.target.value)}
     />
 
-<datalist id="birds" >
+    {/* List of options for dropdown data list, could somehow be connected to Birds Array */}
+<datalist id="birds" > 
             <option value='Dove' />
+            <option value='Robin' />
 </datalist>
-
-
-
-
-
-
-
 
     <SubmitButton onClick={handleGuessSubmit}>Submit Guess</SubmitButton>
 
-    {gameWin && <PlayerWin birdImage={randomBird.img} name={randomBird.label}/>}
+    {gameWin && <PlayerWin birdImage={randomBird.img} name={randomBird.label} bio={randomBird.bio}/>}
     {isWrongGuess && <PlayerLose />}
 
 {/* 

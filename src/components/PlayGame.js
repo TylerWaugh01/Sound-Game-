@@ -91,17 +91,17 @@ function PlayGame() {
   
   
   //logic for getting a randomBird, set state of randomBird, then assign bird call to the state of birdCall. 
-  const handleRandomBirdCall = () => { //NOT USED YET AS IT IS BUGGY BUT CAN IMPLEMENT LATER, RIGHT NOW ONLY NEW GAME IS STARTED ON REFRESH
-    setRandomBird(Birds[Math.floor(Math.random() * Birds.length)]);
-    setBirdCall(new Howl({
-      src: [randomBird.sound],
-      html5: true,
-      volume: 0.1,
-    }));
-    setAnswer(randomBird.label)
-    setGameWin(false)
-    setIsWrongGuess(false)
-  }
+  // const handleRandomBirdCall = () => { //NOT USED YET AS IT IS BUGGY BUT CAN IMPLEMENT LATER, RIGHT NOW ONLY NEW GAME IS STARTED ON REFRESH
+  //   setRandomBird(Birds[Math.floor(Math.random() * Birds.length)]);
+  //   setBirdCall(new Howl({
+  //     src: [randomBird.sound],
+  //     html5: true,
+  //     volume: 0.1,
+  //   }));
+  //   setAnswer(randomBird.label)
+  //   setGameWin(false)
+  //   setIsWrongGuess(false)
+  // }
   
   //will start bird call and save to state
   const playBirdCall = () => {
@@ -142,17 +142,18 @@ return (
     <input 
       type="text"
       placeholder="Bird"
-      list="birds" 
+      style={{ height: '30px', fontSize: '20px', padding: '5px'}}
+      list="birds"
       autoComplete="on"
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
     />
 
     {/* List of options for dropdown data list, could somehow be connected to Birds Array */}
-<datalist id="birds" > 
-            <option value='Dove' />
-            <option value='Robin' />
-</datalist>
+    <datalist id="birds" > 
+      <option value='Dove' />
+      <option value='Robin' />
+    </datalist>
 
     <SubmitButton onClick={handleGuessSubmit}>Submit Guess</SubmitButton>
 

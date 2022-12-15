@@ -1,5 +1,6 @@
 
 
+
 const PlayerWin = ({ birdImage, name, bio }) => {
   return (
     <div style={styles.background}>
@@ -16,16 +17,16 @@ const styles = {
     marginTop: '20px',
     maxWidth: '800px',
     padding: '20px',
-    backgroundColor: '#999'
+    backgroundColor: '#ffd6e0ff'
   },
   image: {
     display: 'block',
     width: '250px',
     margin: '0 auto',
-    border: '2px solid #333'
+    border: '4px solid #90f1efff'
   },
   text: {
-    color: 'white',
+    color: 'black',
     fontSize: '22px',
   },
   heading: {

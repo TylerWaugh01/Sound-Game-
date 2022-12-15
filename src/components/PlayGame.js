@@ -10,14 +10,22 @@ import PlayerLose from './PlayerLose'
 import styled from "styled-components";
 import bird from '../assets/images/Bird.jpg' //for background
 
+
+/* CSS HEX */
+// --electric-blue: #90f1efff; (Primary)
+// --mimi-pink: #ffd6e0ff; (Secondary)
+// --green-yellow-crayola: #ffef9fff; (Highlights)
+// --mint-green: #c1fba4ff; (Highlights)
+// --light-green: #7bf1a8ff; (Highlights)
+
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
-    background-image: url(${bird});
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #90f1efff;
+    /* background-image: url(${bird}); */
     height: 100vh;
     overflow: hidden;`
 
@@ -25,8 +33,9 @@ const Container = styled.div`
 const Logo = styled.span`
 font-size: 75px;
 padding: 20px;
-color: white;
+color: #ffd6e0ff;
 font-weight: bolder;
+text-shadow: 1px 1px 1px #000;
 `;
 
 const Image = styled.img`
@@ -40,13 +49,13 @@ const Image = styled.img`
 const Button = styled.button`
   margin-bottom: 10px;
   border: solid white;
-  background-color: orange;
+  background-color: #c1fba4ff;
   &:hover,
   &:focus {
-    background-color: palevioletred;
+    background-color: #7bf1a8ff;
   }
   font-size: 30px;
-  color: white;
+  color: black;
   cursor: pointer;
   font-weight: bolder;
 `;
@@ -54,9 +63,9 @@ const Button = styled.button`
 const SubmitButton = styled.button`
   margin-top: 10px;
   border: solid;
-  background-color: blue;
+  background-color: #ffef9fff;
   font-size: 30px;
-  color: white;
+  color: black;
   font-weight: bolder;
   cursor: pointer;
 `;
@@ -130,7 +139,7 @@ function PlayGame() {
 
 return (
 
-  <Container>          
+  <Container> 
     <Logo>Birdle</Logo>
     
     { isCallPlaying
@@ -183,7 +192,6 @@ return (
 }
 
 export default PlayGame;
-
 
 
 

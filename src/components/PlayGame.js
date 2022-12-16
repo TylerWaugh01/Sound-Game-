@@ -18,13 +18,22 @@ import bird from '../assets/images/Bird.jpg' //for background
 // --mint-green: #c1fba4ff; (Highlights)
 // --light-green: #7bf1a8ff; (Highlights)
 
+/* CSS HEX */
+// --blue-munsell: #2292a4ff;
+// --phthalo-green: #1b3022ff;
+// --dark-blue-gray: #7261a3ff;
+// --african-violet: #a67db8ff;
+// --champagne-pink: #e6ccbeff;
+
+
+
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
-    background-color: #90f1efff;
+    background-color: #2292a4ff;
     /* background-image: url(${bird}); */
     height: 100vh;
     overflow: hidden;`
@@ -33,7 +42,7 @@ const Container = styled.div`
 const Logo = styled.span`
 font-size: 75px;
 padding: 20px;
-color: #ffd6e0ff;
+color: #1b3022ff;
 font-weight: bolder;
 text-shadow: 1px 1px 1px #000;
 `;
@@ -49,13 +58,13 @@ const Image = styled.img`
 const Button = styled.button`
   margin-bottom: 10px;
   border: solid white;
-  background-color: #c1fba4ff;
+  background-color: #7261a3ff;
   &:hover,
   &:focus {
-    background-color: #7bf1a8ff;
+    background-color: #a67db8ff;
   }
   font-size: 30px;
-  color: black;
+  color: white;
   cursor: pointer;
   font-weight: bolder;
 `;
@@ -63,7 +72,7 @@ const Button = styled.button`
 const SubmitButton = styled.button`
   margin-top: 10px;
   border: solid;
-  background-color: #ffef9fff;
+  background-color: #e6ccbeff;
   font-size: 30px;
   color: black;
   font-weight: bolder;

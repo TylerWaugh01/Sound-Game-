@@ -6,7 +6,7 @@ import doveCall from "./assets/sounds/mourning-dove-sound.mp3"
 export const Birds = [ 
   {
     id: 1,
-    state: "Kansas",
+    stateBird: "Kansas",
     label: "Robin",
     img: robin,
     sound: robinCall,
@@ -16,7 +16,7 @@ export const Birds = [
    {
       id: 2,
       label: "Dove",
-      state: "Kansas",
+      stateBird: "Kansas",
       img: dove,
       sound: doveCall,
       habitat: "Lorem",
@@ -24,6 +24,29 @@ export const Birds = [
     },
   ];
 
+  // BIRD OBJECT SHAPE - NOT FINAL
+  // 
+  /*
+    {
+      id
+      label
+      stateBird
+      sound
+      img
+      habitat
+      locationMap?
+      bio
+      lifespan
+      url
+      conservationStatus
+      scientficClassification
+      taxonomy
+      behavior
+      diet
+      migratory: boolean
+    }
+
+  */
 
 
  

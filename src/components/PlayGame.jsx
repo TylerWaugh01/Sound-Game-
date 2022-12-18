@@ -3,6 +3,7 @@ import { Howl } from 'howler'
 import { useState } from 'react'
 import PlayerWin from './PlayerWin'
 import PlayerLose from './PlayerLose'
+import DisplayChoices from "./answerChoices/DisplayChoices"
 
 // import TextField from '@mui/material/TextField';
 // import Box from '@mui/material/Box'
@@ -98,7 +99,7 @@ function PlayGame() {
   const [birdCall, setBirdCall] = useState(new Howl({
     src: [randomBird.sound],
     html5: true,
-    volume: 0.1,
+    volume: 0.5,
   }))
   const [isCallPlaying, setIsCallPlaying] = useState(false);
 
@@ -164,7 +165,7 @@ function PlayGame() {
       }
 
    
-        <input
+        {/* <input
           type="text"
           placeholder="Bird"
           style={{ height: '30px', fontSize: '20px', padding: '5px' }}
@@ -172,13 +173,13 @@ function PlayGame() {
           autoComplete="on"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-        />
+        /> */}
 
            {/* List of options for dropdown data list, could somehow be connected to Birds Array */}
-           <datalist id="birds" >
+           {/* <datalist id="birds" >
           <option value='Dove' />
           <option value='Robin' />
-        </datalist>
+        </datalist> */}
 
 
         <br></br>
@@ -194,6 +195,8 @@ function PlayGame() {
           <option value='Dove'>Dove</option>
           <option value='Robin'>Robin</option>
         </select>
+
+        <DisplayChoices />
 
      
 

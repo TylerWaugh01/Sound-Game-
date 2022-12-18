@@ -11,19 +11,26 @@ import styled from "styled-components";
 import bird from '../assets/images/Bird.jpg' //for background
 
 
-/* CSS HEX */
+/* Pastel Palette  */
 // --electric-blue: #90f1efff; (Primary)
 // --mimi-pink: #ffd6e0ff; (Secondary)
 // --green-yellow-crayola: #ffef9fff; (Highlights)
 // --mint-green: #c1fba4ff; (Highlights)
 // --light-green: #7bf1a8ff; (Highlights)
 
-/* CSS HEX */
+/* Woodsy Palette One */
 // --blue-munsell: #2292a4ff;
 // --phthalo-green: #1b3022ff;
 // --dark-blue-gray: #7261a3ff;
 // --african-violet: #a67db8ff;
 // --champagne-pink: #e6ccbeff;
+
+/* Woodsy Palette Two */
+// --dark-olive-green: #606c38ff;
+// --kombu-green: #283618ff;
+// --cornsilk: #fefae0ff;
+// --earth-yellow: #dda15eff;
+// --liver-dogs: #bc6c25ff;
 
 
 

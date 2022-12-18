@@ -1,13 +1,13 @@
 import { Birds } from "../data" //bird object
 import { Howl } from 'howler'
-import { useState } from 'react';
+import { useState } from 'react'
 import PlayerWin from './PlayerWin'
 import PlayerLose from './PlayerLose'
 
 // import TextField from '@mui/material/TextField';
 // import Box from '@mui/material/Box'
 // import { Autocomplete } from "@mui/material";
-import styled from "styled-components";
+import styled from "styled-components"
 import bird from '../assets/images/Bird.jpg' //for background
 
 

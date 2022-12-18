@@ -17,16 +17,16 @@ const styles = {
     marginTop: '20px',
     maxWidth: '800px',
     padding: '20px',
-    backgroundColor: '#ffd6e0ff'
+    backgroundColor: '#1b3022ff'
   },
   image: {
     display: 'block',
     width: '250px',
     margin: '0 auto',
-    border: '4px solid #90f1efff'
+    border: '4px solid #e6ccbeff'
   },
   text: {
-    color: 'black',
+    color: 'white',
     fontSize: '22px',
   },
   heading: {

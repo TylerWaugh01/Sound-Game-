@@ -11,12 +11,28 @@ import styled from "styled-components"
 import bird from '../assets/images/Bird.jpg' //for background
 
 
-/* CSS HEX */
+/* Pastel Palette  */
 // --electric-blue: #90f1efff; (Primary)
 // --mimi-pink: #ffd6e0ff; (Secondary)
 // --green-yellow-crayola: #ffef9fff; (Highlights)
 // --mint-green: #c1fba4ff; (Highlights)
 // --light-green: #7bf1a8ff; (Highlights)
+
+/* Woodsy Palette One */
+// --blue-munsell: #2292a4ff;
+// --phthalo-green: #1b3022ff;
+// --dark-blue-gray: #7261a3ff;
+// --african-violet: #a67db8ff;
+// --champagne-pink: #e6ccbeff;
+
+/* Woodsy Palette Two */
+// --dark-olive-green: #606c38ff;
+// --kombu-green: #283618ff;
+// --cornsilk: #fefae0ff;
+// --earth-yellow: #dda15eff;
+// --liver-dogs: #bc6c25ff;
+
+
 
 
 const Container = styled.div`
@@ -24,16 +40,16 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
-    background-color: #90f1efff;
+    background-color: #2292a4ff;
     /* background-image: url(${bird}); */
-    height: 100vh;
+    height: 150vh; // Made height a little bigger, bird information was cutting off
     overflow: hidden;`
 
 
 const Logo = styled.span`
 font-size: 75px;
 padding: 20px;
-color: #ffd6e0ff;
+color: #1b3022ff;
 font-weight: bolder;
 text-shadow: 1px 1px 1px #000;
 `;
@@ -49,13 +65,13 @@ const Image = styled.img`
 const Button = styled.button`
   margin-bottom: 10px;
   border: solid white;
-  background-color: #c1fba4ff;
+  background-color: #7261a3ff;
   &:hover,
   &:focus {
-    background-color: #7bf1a8ff;
+    background-color: #a67db8ff;
   }
   font-size: 30px;
-  color: black;
+  color: white;
   cursor: pointer;
   font-weight: bolder;
 `;
@@ -63,7 +79,7 @@ const Button = styled.button`
 const SubmitButton = styled.button`
   margin-top: 10px;
   border: solid;
-  background-color: #ffef9fff;
+  background-color: #e6ccbeff;
   font-size: 30px;
   color: black;
   font-weight: bolder;
@@ -71,7 +87,7 @@ const SubmitButton = styled.button`
 `;
 
 function PlayGame() {
- 
+
   /*
     State management for:
     1. obtaining random bird
@@ -86,19 +102,19 @@ function PlayGame() {
   }))
   const [isCallPlaying, setIsCallPlaying] = useState(false);
 
-   /* 
-    State management for:
-    1. text input values (controlled text input) for displaying current text in input and comparing input value(guess) to answer
-    2. Setting correct Answer
-    3. Guess win state
-    4. player wrong guess
-  */
-    const [inputValue, setInputValue] = useState("");
-    const [answer, setAnswer] = useState(randomBird.label)
-    const [gameWin, setGameWin] = useState(false)
-    const [isWrongGuess, setIsWrongGuess] = useState(false)
-  
-  
+  /* 
+   State management for:
+   1. text input values (controlled text input) for displaying current text in input and comparing input value(guess) to answer
+   2. Setting correct Answer
+   3. Guess win state
+   4. player wrong guess
+ */
+  const [inputValue, setInputValue] = useState("");
+  const [answer, setAnswer] = useState(randomBird.label)
+  const [gameWin, setGameWin] = useState(false)
+  const [isWrongGuess, setIsWrongGuess] = useState(false)
+
+
   //logic for getting a randomBird, set state of randomBird, then assign bird call to the state of birdCall. 
   // const handleRandomBirdCall = () => { //NOT USED YET AS IT IS BUGGY BUT CAN IMPLEMENT LATER, RIGHT NOW ONLY NEW GAME IS STARTED ON REFRESH
   //   setRandomBird(Birds[Math.floor(Math.random() * Birds.length)]);
@@ -111,11 +127,11 @@ function PlayGame() {
   //   setGameWin(false)
   //   setIsWrongGuess(false)
   // }
-  
+
   //will start bird call and save to state
   const playBirdCall = () => {
     birdCall.play()
-    setIsCallPlaying(true) 
+    setIsCallPlaying(true)
   }
 
   //will stop bird call and save to state
@@ -131,45 +147,63 @@ function PlayGame() {
     if (inputValue.toLowerCase() === answer.toLowerCase()) {
       setGameWin(true)
       setIsWrongGuess(false)
-      stopBirdCall()      
+      stopBirdCall()
     } else {
       setIsWrongGuess(true)
     }
   }
 
-return (
+  return (
 
-  <Container> 
-    <Logo>Birdle</Logo>
-    
-    { isCallPlaying
-      ? <Button onClick={stopBirdCall}>Stop Call</Button> 
-      : <Button onClick={playBirdCall}>Play Call</Button>
-    }
-    
+    <Container>
+      <Logo>Birdle</Logo>
 
-    <input 
-      type="text"
-      placeholder="Bird"
-      style={{ height: '30px', fontSize: '20px', padding: '5px'}}
-      list="birds"
-      autoComplete="on"
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-    />
+      {isCallPlaying
+        ? <Button onClick={stopBirdCall}>Stop Call</Button>
+        : <Button onClick={playBirdCall}>Play Call</Button>
+      }
 
-    {/* List of options for dropdown data list, could somehow be connected to Birds Array */}
-    <datalist id="birds" > 
-      <option value='Dove' />
-      <option value='Robin' />
-    </datalist>
+   
+        <input
+          type="text"
+          placeholder="Bird"
+          style={{ height: '30px', fontSize: '20px', padding: '5px' }}
+          list="birds"
+          autoComplete="on"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
 
-    <SubmitButton onClick={handleGuessSubmit}>Submit Guess</SubmitButton>
+           {/* List of options for dropdown data list, could somehow be connected to Birds Array */}
+           <datalist id="birds" >
+          <option value='Dove' />
+          <option value='Robin' />
+        </datalist>
 
-    {gameWin && <PlayerWin birdImage={randomBird.img} name={randomBird.label} bio={randomBird.bio}/>}
-    {isWrongGuess && <PlayerLose />}
 
-{/* 
+        <br></br>
+
+{/* Select options do not have to be deleted after selection to show all options. Also user can type or choose from dropdown.         */}
+        <select name="bird"
+          placeholder="Bird"
+          style={{ height: '50px', width: '300px', fontSize: '20px', padding: '5px' }}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        >
+          <option value="" disabled selected hidden>Choose a Bird</option>
+          <option value='Dove'>Dove</option>
+          <option value='Robin'>Robin</option>
+        </select>
+
+     
+
+
+      <SubmitButton onClick={handleGuessSubmit}>Submit Guess</SubmitButton>
+
+      {gameWin && <PlayerWin birdImage={randomBird.img} name={randomBird.label} bio={randomBird.bio} />}
+      {isWrongGuess && <PlayerLose />}
+
+      {/* 
     <Autocomplete
       value={value}
       onChange={(event, newValue) => {
@@ -186,8 +220,8 @@ return (
       renderInput={(params) => <TextField {...params} label=""  />}
     /> */}
 
-    {/* <SubmitButton onClick={click}>Submit Guess</SubmitButton> */}
-  </Container>
+      {/* <SubmitButton onClick={click}>Submit Guess</SubmitButton> */}
+    </Container>
   );
 }
 

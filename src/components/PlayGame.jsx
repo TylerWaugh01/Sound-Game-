@@ -1,13 +1,14 @@
 import { Birds } from "../data" //bird object
 import { Howl } from 'howler'
-import { useState } from 'react';
+import { useState } from 'react'
 import PlayerWin from './PlayerWin'
 import PlayerLose from './PlayerLose'
+import DisplayChoices from "./answerChoices/DisplayChoices"
 
 // import TextField from '@mui/material/TextField';
 // import Box from '@mui/material/Box'
 // import { Autocomplete } from "@mui/material";
-import styled from "styled-components";
+import styled from "styled-components"
 import bird from '../assets/images/Bird.jpg' //for background
 
 
@@ -41,8 +42,7 @@ const Container = styled.div`
     align-items: center; 
     justify-content: flex-start;
     background-color: #2292a4ff;
-    /* background-image: url(${bird}); */
-    height: 150vh; // Made height a little bigger, bird information was cutting off
+    height: 150vh; 
     overflow: hidden;`
 
 
@@ -59,8 +59,6 @@ const Image = styled.img`
   height: 50%;
   object-fit: cover;
 `;
-
-
 
 const Button = styled.button`
   margin-bottom: 10px;
@@ -98,7 +96,7 @@ function PlayGame() {
   const [birdCall, setBirdCall] = useState(new Howl({
     src: [randomBird.sound],
     html5: true,
-    volume: 0.1,
+    volume: 0.5,
   }))
   const [isCallPlaying, setIsCallPlaying] = useState(false);
 
@@ -163,26 +161,6 @@ function PlayGame() {
         : <Button onClick={playBirdCall}>Play Call</Button>
       }
 
-   
-        <input
-          type="text"
-          placeholder="Bird"
-          style={{ height: '30px', fontSize: '20px', padding: '5px' }}
-          list="birds"
-          autoComplete="on"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-
-           {/* List of options for dropdown data list, could somehow be connected to Birds Array */}
-           <datalist id="birds" >
-          <option value='Dove' />
-          <option value='Robin' />
-        </datalist>
-
-
-        <br></br>
-
 {/* Select options do not have to be deleted after selection to show all options. Also user can type or choose from dropdown.         */}
         <select name="bird"
           placeholder="Bird"
@@ -193,34 +171,16 @@ function PlayGame() {
           <option value="" disabled selected hidden>Choose a Bird</option>
           <option value='Dove'>Dove</option>
           <option value='Robin'>Robin</option>
+          <option value='Northern Flicker'>Northern Flicker</option>
         </select>
 
-     
-
+        <DisplayChoices />
 
       <SubmitButton onClick={handleGuessSubmit}>Submit Guess</SubmitButton>
 
       {gameWin && <PlayerWin birdImage={randomBird.img} name={randomBird.label} bio={randomBird.bio} />}
       {isWrongGuess && <PlayerLose />}
-
-      {/* 
-    <Autocomplete
-      value={value}
-      onChange={(event, newValue) => {
-      setValue(newValue);
-      }}
-
-      inputValue={inputValue}
-      onInputChange={(event, newInputValue) => {
-      setInputValue(newInputValue);
-      }}
-      id="bird"
-      options={Birds}
-      sx={{ width: 300, marginTop: 5 }}x
-      renderInput={(params) => <TextField {...params} label=""  />}
-    /> */}
-
-      {/* <SubmitButton onClick={click}>Submit Guess</SubmitButton> */}
+ 
     </Container>
   );
 }

@@ -13,14 +13,14 @@ const DisplayChoices = () => {
 
   return (
     <>
-    <div style={styles.border}>
-    <p>this component is for testing, will not interrupt current logic</p>
-      <div style={styles.testing}>
-      {Birds.map((bird) => <BirdCard key={bird.id} image={bird.img} name={bird.label}/>)}
-    </div>
-      
-    </div>
-    
+      <div style={styles.border}>
+        <p>this component is for testing, will not interrupt current logic</p>
+          <div style={styles.testing}>
+
+          {Birds.map((bird) => <BirdCard key={bird.id} image={bird.img} name={bird.label}/>)}
+          
+          </div>
+      </div>
     </>
   );
 }
